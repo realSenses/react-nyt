@@ -16,7 +16,7 @@ class Main extends React.Component {
   // initial states set user inputs and returned results
   /*
   getInitialState() {
-    return { searchTerm: "", searchBegindate:"", searchEnddate:"", results: [], savedArticls: [] };
+    return { searchTerm: "", searchBegindate:"", searchEnddate:"", results: [], savedArticles: [] };
   }
   */
 
@@ -27,7 +27,7 @@ class Main extends React.Component {
       searchBegindate: "", 
       searchEnddate:"", 
       results: [], 
-      savedArticls: []
+      savedArticles: []
     };
     this.setTerm = this.setTerm.bind(this);
     this.getSavedArticles = this.getSavedArticles.bind(this);
@@ -42,9 +42,9 @@ class Main extends React.Component {
     // Get the latest saved.
     helpers.getSaved().then(function(response) {
       console.log("These are current saved articles " + response);
-      if (response !== this.state.savedArticls) {
+      if (response !== this.state.savedArticles) {
         console.log("Saved articles", response.data);
-        this.setState({ savedArticls: response.data });
+        this.setState({ savedArticles: response.data });
       }
     }.bind(this));
   }
@@ -132,7 +132,7 @@ class Main extends React.Component {
           <div className="panel panel-default">
             <div className="panel-heading" id="savedHeader"><strong>Saved Article(s)</strong></div>
               <div className="panel-body">
-              {this.state.savedArticls.map(function(res2, i) {
+              {this.state.savedArticles.map(function(res2, i) {
                 return (
                   <div className="panel panel-default">
                     <div className="panel-body">
